@@ -9,40 +9,73 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="node_modules/reset-css/reset.css">
     <link rel="stylesheet" href="node_modules/components-font-awesome/css/font-awesome.css">
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 
 </head>
 <body>
 
 <ul>
-    <li><a ui-sref="home">Home</a></li>
-    <li><a ui-sref="feature">Feature</a></li>
-    <li><a ui-sref="about">About</a></li>
-    <li><a ui-sref="form">Form</a></li>
-    <li><a ui-sref="ajax">Ajax</a></li>
-    <li><a ui-sref="plus">Plus</a></li>
-    <li><a ui-sref="todo">Todo</a></li>
+    <!--<li><a ui-sref="home">Home</a></li>-->
+    <!--<li><a ui-sref="feature">Feature</a></li>-->
+    <!--<li><a ui-sref="about">About</a></li>-->
+    <!--<li><a ui-sref="form">Form</a></li>-->
+    <!--<li><a ui-sref="ajax">Ajax</a></li>-->
+    <!--<li><a ui-sref="plus">Plus</a></li>-->
+    <!--<li><a ui-sref="todo">Todo</a></li>-->
 </ul>
-<div ui-view></div>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home">Trang chủ</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Đơn vị<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="about">Home</a></li>
+                        <li><a href="#">Bộ môn</a></li>
+                        <li><a href="#">PTN</a></li>
+                        <li><a href="#">VPK</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Lĩnh vực</a></li>
+                <li><a href="#">Giảng viên</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div ui-view>
+
+</div>
 
 </body>
 <!--route-->
 <script src="app.js"></script>
 
 <script src="modules/about/about.js"></script>
-<script src="modules/feature/feature.js"></script>
-<script src="modules/form/form.js"></script>
-<script src="modules/ajax/ajax.js"></script>
-<script src="modules/plus/plus.js"></script>
-<script src="modules/todo/todo.js"></script>
+<!--<script src="modules/feature/feature.js"></script>-->
+<!--<script src="modules/form/form.js"></script>-->
+<!--<script src="modules/ajax/ajax.js"></script>-->
+<!--<script src="modules/plus/plus.js"></script>-->
+<!--<script src="modules/todo/todo.js"></script>-->
 
 <!--controller-->
 <script src="modules/about/aboutCtrl.js"></script>
-<script src="modules/feature/featureCtrl.js"></script>
-<script src="modules/form/formCtrl.js"></script>
-<script src="modules/ajax/ajaxCtrl.js"></script>
-<script src="modules/todo/todoCtrl.js"></script>
-<script src="modules/plus/plusCtrl.js"></script>
-<!--service -->
-<script src="modules/plus/plusService.js"></script>
+<!--<script src="modules/feature/featureCtrl.js"></script>-->
+<!--<script src="modules/form/formCtrl.js"></script>-->
+<!--<script src="modules/ajax/ajaxCtrl.js"></script>-->
+<!--<script src="modules/todo/todoCtrl.js"></script>-->
+<!--<script src="modules/plus/plusCtrl.js"></script>-->
+<!--&lt;!&ndash;service &ndash;&gt;-->
+<!--<script src="modules/plus/plusService.js"></script>-->
 </html>

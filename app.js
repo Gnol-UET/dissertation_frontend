@@ -1,13 +1,13 @@
 angular.module('app', ['ui.router',
-    'aboutModule',
-    'featureModule',
-    'formModule',
-    'ajaxModule',
-    'plusModule',
-    'todoModule'
+    'aboutModule'
+    // 'featureModule',
+    // 'formModule',
+    // 'ajaxModule',
+    // 'plusModule',
+    // 'todoModule'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/home')
+        $urlRouterProvider.otherwise('/');
         $stateProvider
         // nested list with custom controller
             .state('home', { //Định nghĩa 1 state
