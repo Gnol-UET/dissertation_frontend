@@ -1,5 +1,6 @@
 angular.module('app', ['ui.router',
-    'aboutModule'
+    'aboutModule',
+    'facultyModule'
     // 'featureModule',
     // 'formModule',
     // 'ajaxModule',
