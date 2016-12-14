@@ -1,3 +1,17 @@
-<div class="div">
-    {{hello}}
+<div class="row">
+		<div class="col-sm-1"></div>
+        <div class="col-sm-2">
+            <div class="list-group leftbar">
+                <a class="list-group-item"  ui-sref=".intro">Giới thiệu</a>
+                <a class="list-group-item"  ui-sref=".TeacherInfo">Thông tin giảng viên</a>
+                <a class="list-group-item"  ui-sref=".CourseInfo">Thông tin khoá học</a>
+                <a class="list-group-item"  ui-sref=".Course">Chương trình đào tạo</a>
+                <a class="list-group-item"  ui-sref=".StudentInfo">Thông tin sinh viên</a>
+                <a class="list-group-item"  ui-sref=".DissertationRegister">Mở đăng kí đề tài </a>
+                <a class="list-group-item"  ui-sref=".Dissertation">Khoá luận tốt nghiệp</a>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div ui-view></div>
+        </div>
 </div>
