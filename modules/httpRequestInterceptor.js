@@ -7,10 +7,12 @@ angular.module('services').factory('httpRequestInterceptor', function ($rootScop
                 requestConfig.headers['auth-token'] = localStorage['User-Data'];
             }
             // requestConfig.headers['Content-Type'] = 'application/json';
-            if( $injector.get('$state').current.name == 'faculty.TeacherInfo'){
+            if( $injector.get('$state').current.name == 'faculty.TeacherInfo' ||
+                $injector.get('$state').current.name == 'faculty.StudentInfo'){
 
                 requestConfig.headers['Content-Type'] = undefined   ;
             }
+
             //$rootScope.isShowOverlay = true;
             return requestConfig;
         },

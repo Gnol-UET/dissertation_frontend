@@ -4,6 +4,35 @@ angular.module('loginModule')
             username:"",
             password:""
         };
+
+        $scope.changePassword = {
+            oldPassword: "",
+            password: "",
+            passwordRepeat: ""
+        };
+
+        $scope.changePasswordfnc = function() {
+
+            var dto = {
+                username: $rootScope.userInfo,
+                oldpassword: $scope.changePassword.oldPassword,
+                newpassword: $scope.changePassword.password
+            };
+
+            authenService.changePassword(dto)
+                .then(
+                    function (response) {
+                        alert("Password changed successfully");
+                        $('#changepassword-modal').modal('hide');
+                    },
+                    function (error, data) {
+                        alert(error.data.message);
+                    }
+                )
+
+
+        };
+
         if(localStorage.getItem("currentUser") != null){
             var accessible = false;
             var currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -55,6 +84,7 @@ angular.module('loginModule')
                         $rootScope.tokenAuth = localStorage['User-Data'];
                         $('#login-modal').modal('hide');
                         $rootScope.checkLogin = true;
+                        $rootScope.userInfo = localStorage.getItem('username');
                         $state.go('faculty');
                     },function (error,data) {
                         alert("Invalid username or password");

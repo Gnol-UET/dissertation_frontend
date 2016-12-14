@@ -6,6 +6,7 @@ angular.module('facultyModule')
         $scope.listOfFaculty = initialFaculty; // <- lấy dữ liệu luôn để display
         $scope.listOfTeacher = [];
         $scope.tableTeacher = false;
+        $scope.isOpenForRegister = false;
         $scope.getListOfTeacher = function () {
             facultyService.showAllTeacher()
                 .then(function (response) {
@@ -31,7 +32,22 @@ angular.module('facultyModule')
             promise.success(function () {
 
                 $scope.successful = true;
+                alert("Upload successful!");
 
+            }).catch(function () {
+
+            })
+        };
+        $scope.studentexecuteImport = function studentexecuteImport(importFile) {
+            var promise = importService.studentimportBuxfer({
+                file: importFile
+
+            });
+
+            promise.success(function () {
+
+                $scope.successful = true;
+                alert("Upload successful!");
             }).catch(function () {
 
             })

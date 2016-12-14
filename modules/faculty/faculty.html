@@ -6,8 +6,8 @@
                 <a class="list-group-item"  ui-sref=".TeacherInfo">Thông tin giảng viên</a>
                 <a class="list-group-item"  ui-sref=".CourseInfo">Thông tin khoá học</a>
                 <a class="list-group-item"  ui-sref=".Course">Chương trình đào tạo</a>
-                <a class="list-group-item"  ui-sref=".StudentInfo">Thông tin sinh viên</a>
-                <a class="list-group-item"  ui-sref=".DissertationRegister">Mở đăng kí đề tài </a>
+                <a class="list-group-item"  ui-sref=".StudentInfo" ng-if="isMod">Khởi tạo sinh viên</a>
+                <a class="list-group-item"  ui-sref=".DissertationRegister" ng-if="isOpenForRegister||isMod">Đăng kí đề tài </a>
                 <a class="list-group-item"  ui-sref=".Dissertation">Khoá luận tốt nghiệp</a>
             </div>
         </div>

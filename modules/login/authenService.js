@@ -3,7 +3,8 @@ angular.module('app')
     .service('authenService', function ($http) {
         var service = {
             accessible : checkAccessible,
-            login:login
+            login:login,
+            changePassword: changePassword
         };
         return service;
 
@@ -15,6 +16,17 @@ angular.module('app')
             })
 
         }
+
+        function changePassword(opts) {
+            return $http({
+
+                url: 'http://localhost:8090/changepassword',
+                method: 'PUT',
+                data: opts
+
+            })
+        }
+
         function checkAccessible(username, password) {
             var accessible = false;
             // localStorage.getItem(username) == pa

@@ -23,7 +23,7 @@
                 <div class="col-lg-1" style = "margin-top: 10px"></div>
 
                 <div class="col-lg-1" style = "margin-top: 10px">
-                    <a ui-sref="home"><img src="/assets/img/uet_logo.png"></a>
+                    <a ui-sref="home"><img src="assets/img/uet_logo.png"></a>
                 </div>
 
                 <div class="col-lg-8">
@@ -69,8 +69,9 @@
                     <li><a href="#">Lĩnh vực</a></li>
                     <li><a href="#">Giảng viên</a></li>
                     <li ng-controller="loginController" ng-if="!checkLogin"><a data-toggle="modal" data-target="#login-modal">Login</a></li>
-
-                    <li ng-controller="loginController" ng-if="checkLogin"   ><a href="#" ng-click="logout()">Logout</a> </li>
+                    <li ng-controller="loginController" ng-if="checkLogin"><a>Xin chào <strong style="color: red">{{ userInfo }}</strong></a></li>
+                    <li ng-controller="loginController" ng-if="checkLogin"><a data-toggle="modal" data-target="#changepassword-modal">Đổi mật khẩu</a></li>
+                    <li ng-controller="loginController" ng-if="checkLogin"><a href="#" ng-click="logout()" style="text-decoration: underline">Logout</a></li>
 
                 </ul>
             </div>
@@ -78,7 +79,6 @@
             <div class="modal fade" ng-controller="loginController" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" >
                       <div class="modal-dialog">
                             <div class="loginmodal-container">
-                                <p> Test </p>
                                 <h1>Login to Your Account</h1><br>
                               <form name = "formNhap">
 
@@ -98,13 +98,28 @@
                         </div>
 
             </div>
+            <div class="modal fade" ng-controller="loginController" id="changepassword-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" >
+                      <div class="modal-dialog">
+                            <div class="loginmodal-container">
+                              <form name = "changePasswordForm">
+
+                                  <input type="password" name="oldPass" placeholder="Old Password" ng-model="changePassword.oldPassword" required>
+                                  <span ng-show="changePasswordForm.oldPass.$error.required">Password không được trống</span>
+
+                                  <input type="password" name="newPassword" placeholder="Password" ng-model="changePassword.password" required>
+                                  <span ng-show="changePasswordForm.newPassword.$error.required">Password không được trống</span>
+                                  <br>
+                                  <input type="password" name="newPasswordRepeat" placeholder="Repeat password" ng-model="changePassword.passwordRepeat" required>
+                                  <span ng-show="changePasswordForm.newPasswordRepeat.$error.required">Password repeat không được trống</span>
+                                  <br>
+                                  <button ng-click="changePasswordfnc()" ng-disabled="changePasswordForm.$invalid || dataLoading || changePassword.passwordRepeat != changePassword.password" class="btn btn-danger">Đổi mật khẩu</button>
+                              </form>
+                            </div>
+                        </div>
+
+            </div>
         </div>
     </nav>
-
-    <div>
-        <p> tesst {{ hello }} </p>
-        <p> {{ k }}</p>
-    </div>
 
     <div ui-view>
     </div>
