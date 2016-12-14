@@ -1,14 +1,16 @@
+angular.module('services', []);
 angular.module('app', ['ui.router',
     'aboutModule',
     'facultyModule',
-    'loginModule'
+    'loginModule',
+    'services'
     // 'featureModule',
     // 'formModule',
     // 'ajaxModule',
     // 'plusModule',
     // 'todoModule'
     ])
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
         $urlRouterProvider.otherwise('/home');
         $stateProvider
         // nested list with custom controller
@@ -24,7 +26,13 @@ angular.module('app', ['ui.router',
                             });
                     }]
                 }
-            })
+            });
+        $httpProvider.defaults.headers.get = {'Content-Type': 'application/json'};
+        $httpProvider.defaults.headers.common = {'Content-Type': 'application/json'};
+        $httpProvider.defaults.headers.post = {'Content-Type': 'application/json'};
+        $httpProvider.defaults.headers.put = {'Content-Type': 'application/json'};
+        $httpProvider.defaults.headers.patch = {'Content-Type': 'application/json'};
+        $httpProvider.interceptors.push('httpRequestInterceptor');
 
 
     });

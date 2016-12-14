@@ -18,6 +18,7 @@ angular.module('facultyModule', ['ui.router',])
                                 return response.data;
                             });
                     }]
+
                 }
             })
 
