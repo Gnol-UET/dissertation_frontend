@@ -92,8 +92,27 @@ angular.module('facultyModule')
   });  
 
 angular.module('facultyModule')
-  .controller('DissertationRegisterController',function ($scope) {
-
+  .controller('DissertationRegisterController',function ($scope, $rootScope, facultyService) {
+      $scope.openRegister= function () {
+          facultyService.openRegister()
+              .then(function (response) {
+                      $rootScope.currentRegisterStatus = "Đang mở đăng ký";
+                      console.log(response);
+                  },
+                  function (error,data) {
+                      console.log("error");
+                  })
+      };
+      $scope.closeRegister = function () {
+          facultyService.closeRegister()
+              .then(function (response) {
+                      $rootScope.currentRegisterStatus = "Cổng đăng ký đóng";
+                      console.log(response);
+                  },
+                  function (error,data) {
+                      console.log("error");
+                  })
+      };
   });  
 
 

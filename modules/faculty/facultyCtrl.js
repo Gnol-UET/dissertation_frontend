@@ -6,7 +6,10 @@ angular.module('facultyModule')
         $scope.listOfFaculty = initialFaculty; // <- lấy dữ liệu luôn để display
         $scope.listOfTeacher = [];
         $scope.tableTeacher = false;
-        $scope.isOpenForRegister = false;
+        $rootScope.isOpenForRegister = false;
+        $rootScope.currentRegisterStatus = "Đang mở đăng ký";
+
+
         $scope.getListOfTeacher = function () {
             facultyService.showAllTeacher()
                 .then(function (response) {
