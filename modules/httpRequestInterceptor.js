@@ -1,4 +1,4 @@
-angular.module('services').factory('httpRequestInterceptor', function ($rootScope, $q, $timeout) {
+angular.module('services').factory('httpRequestInterceptor', function ($rootScope,$injector, $q, $timeout) {
     return {
         request: function (requestConfig) {
             //default show toaster for all xhr, if some error doesn't need to show then set this var to false when handle failure
@@ -6,7 +6,11 @@ angular.module('services').factory('httpRequestInterceptor', function ($rootScop
             if (localStorage['User-Data']) {
                 requestConfig.headers['auth-token'] = localStorage['User-Data'];
             }
-            requestConfig.headers['Content-Type'] = 'application/json';
+            // requestConfig.headers['Content-Type'] = 'application/json';
+            if( $injector.get('$state').current.name == 'faculty.TeacherInfo'){
+
+                requestConfig.headers['Content-Type'] = undefined   ;
+            }
             //$rootScope.isShowOverlay = true;
             return requestConfig;
         },

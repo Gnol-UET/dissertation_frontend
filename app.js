@@ -3,7 +3,8 @@ angular.module('app', ['ui.router',
     'aboutModule',
     'facultyModule',
     'loginModule',
-    'services'
+    'services',
+    'ngFileUpload'
     // 'featureModule',
     // 'formModule',
     // 'ajaxModule',
