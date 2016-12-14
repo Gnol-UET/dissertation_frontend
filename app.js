@@ -38,4 +38,6 @@ angular.module('app')
         $rootScope.listOfFaculty = [];
         $rootScope.listOfFaculty = initialFaculty;
 
+
+
     });

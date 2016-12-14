@@ -22,6 +22,16 @@ angular.module('loginModule')
 
         }
 
+        if(localStorage.getItem("User-Data") == "undefined" || localStorage.getItem("User-Data") == null ){
+            $rootScope.checkLogin = false;
+        }
+        else $rootScope.checkLogin = true;
+        $scope.logout = function(){
+            $rootScope.checkLogin = false;
+            localStorage.clear();
+            $state.reload();
+        };
+
         if(localStorage.getItem("currentUser") == null){
             $scope.submit = function () {
                 var accessible = false;
@@ -43,8 +53,11 @@ angular.module('loginModule')
 
                         $rootScope.username = localStorage['username'];
                         $rootScope.tokenAuth = localStorage['User-Data'];
+                        $('#login-modal').modal('hide');
+                        $rootScope.checkLogin = true;
+                        $state.go('faculty');
                     },function (error,data) {
-                        console.log("Error")
+                        alert("Invalid username or password");
                     });
 
                 // if(accessible == true){
